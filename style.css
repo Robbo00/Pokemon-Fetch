@@ -1,0 +1,128 @@
+body{
+    background-color: rgb(245, 229, 209);
+    margin: 0;
+    padding: 0;
+    
+}
+.head{
+    color: #F096B3;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    border: 2px dashed burlywood;
+    width: 100%;
+}
+.Add{
+    width: 50%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+hr{
+    width: 100%;
+    position: relative;
+    top: 70px;
+}
+.out{
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    flex-flow: wrap;
+    gap: 45px;
+    display: flex;
+    border: salmon dashed 2px;
+    position: relative;
+    left: 45px;
+    top: 130px;
+    width: 1400px;
+    text-align: center;
+    justify-content: center;
+}
+.scroll{
+    position: relative;
+    top: 600px;
+}
+.labi{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+.P{
+    height: 475px;
+    width: 415px;
+    background-color: salmon;
+    border-radius: 15px;
+    color: white;
+    background-position: center;
+    background-size: contain;
+    background-image: url();
+    background-repeat: no-repeat;
+}
+.red{
+    text-align: center;
+}
+
+.disp{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.sum{
+    text-align: center;
+    color: white;
+    background-color: salmon;
+    height: 70%;
+    width: 100%;
+    border-radius: 25px;
+    position: relative;
+    left: 245px;
+    top: 50px;
+}
+.button{
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: salmon;
+    position: relative;
+    left: 330px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 5px 10px;
+}
+button{
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: salmon;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 5px 10px;
+    cursor: pointer;
+}
+.Butto{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    position: relative;
+    left: 50px;
+    top: 145px;
+}
+ol{
+    position: relative;
+    right: 10px;
+}
+.numb{
+    position: relative;
+    left: 300px;
+    width: 250px;
+}
