@@ -1,5 +1,7 @@
-for (let i = 1; i <= 1302; i++) {
-let red = fetch('https://pokeapi.co/api/v2/pokemon?limit=250')
+
+let yes = prompt("How much pokemon")
+for (let i = 0; i < yes; i++) {
+let red = fetch('https://pokeapi.co/api/v2/pokemon?limit=1302')
     
 .then(response =>{
     if(!response.ok){throw new Error('Networknrespons was not ok' + response.statusText)}
@@ -27,7 +29,7 @@ let blue = fetch(data.results[i].url)
         yes = []
         yes.push(get, data.base_experience, data.sprites.front_default, data.abilities[0].ability.name, data.types[0].type.name)
         console.log(yes)
-        make(yes, i)
+        make(yes, i + 1)
         return data
     })
     return data
@@ -37,7 +39,7 @@ let blue = fetch(data.results[i].url)
 
 function make(info, id){
     let backo = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
-    let template = `<div id="${info[0]}" class="P ${info[4]}"> <h1 id="Phead" class="red" >${info[0]}</h1> <div class="disp"><p>${info[3]}<p/> <p>${info[4]}<p/> </div> </div>`
+    let template = `<div id="${info[0]}" class="P ${info[4]}"> <h1 id="Phead" class="red content" >${info[0].charAt(0).toUpperCase() + info[0].slice(1)}</h1> <div class="disp"> <p class="content h">${info[3].charAt(0).toUpperCase() + info[3].slice(1)} Type<p/> <p class="content">1st Ability: ${info[4].charAt(0).toUpperCase() + info[4].slice(1)}</p> <p class="content">Base Exp ${info[1]}</p></div> </div>`
     let reg = document.createElement('div')
     reg.innerHTML = template
     document.getElementById("outp").appendChild(reg)
