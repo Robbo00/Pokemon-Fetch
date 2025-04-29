@@ -1,4 +1,4 @@
-
+let aud = new Audio('coin-flip-shimmer-85750.mp3')
 let yes = prompt("How much pokemon")
 for (let i = 0; i < yes; i++) {
 let red = fetch('https://pokeapi.co/api/v2/pokemon?limit=1302')
@@ -39,7 +39,7 @@ let blue = fetch(data.results[i].url)
 
 function make(info, id){
     let backo = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
-    let template = `<div id="${info[0]}" class="P ${info[4]}"> <h1 id="Phead" class="red content" >${info[0].charAt(0).toUpperCase() + info[0].slice(1)}</h1> <div class="disp"> <p class="content h">${info[3].charAt(0).toUpperCase() + info[3].slice(1)} Type<p/> <p class="content">1st Ability: ${info[4].charAt(0).toUpperCase() + info[4].slice(1)}</p> <p class="content">Base Exp ${info[1]}</p></div> </div>`
+    let template = `<div id="${info[0]}" name="P" onmouseover="red()" class="P ${info[4]}"> <h1 id="Phead" class="red content" >${info[0].charAt(0).toUpperCase() + info[0].slice(1)}</h1> <div class="disp"> <p class="content h">${info[3].charAt(0).toUpperCase() + info[3].slice(1)} Type<p/> <p class="content">1st Ability: ${info[4].charAt(0).toUpperCase() + info[4].slice(1)}</p> <p class="content">Base Exp ${info[1]}</p></div> </div>`
     let reg = document.createElement('div')
     reg.innerHTML = template
     document.getElementById("outp").appendChild(reg)
@@ -47,4 +47,8 @@ function make(info, id){
 }
 function background(back, name){
     document.getElementById(name).style.backgroundImage = `url(${back})`
+}
+
+function red(){
+    aud.play()
 }
