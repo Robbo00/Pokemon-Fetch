@@ -199,3 +199,6 @@ button:hover{
 img:hover{
     cursor: pointer;
 }
+.show{
+    display: initial;
+}

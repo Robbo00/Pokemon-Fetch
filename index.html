@@ -15,14 +15,13 @@
     <div class="nav">
         <button onclick="pFav()">Favorites</button>
         <div id="auto" class="auto">
-                    <input onblur="blurry()" id="blue" oninput="ent(event, this.id)" type="search">
+                    <input onblur="blurry()" id="blue" onkeydown="checkEnt(event)" oninput="ent(event, this.id)" type="search">
                     <button onclick="back()">Poke-Dex</button>
         </div>
-        <button>Clear Favorites</button>
+        <button onclick="cFav()">Clear Favorites</button>
     </div>
     
     <div class="out" id="outp">
-
     </div>
 </body>
     <script src="script.js">
