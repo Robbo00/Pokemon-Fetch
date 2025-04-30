@@ -48,14 +48,9 @@ function make(info, id, height, weight){
 }
 // Sets background fro previously created cards to the image
 function background(back, name){    
-    let lasto = document.getElementById('outp').children
 
     document.getElementById(name).style.backgroundImage = `url(${back})`
-    if(document.getElementById('outp').childElementCount >= yes){
-        for (let i = 0; i <= lasto.length + 1; i++) {
-           lasto[i].classList.add('show')
-        }
-    }
+   
 }
 
 // function red(){
