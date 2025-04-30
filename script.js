@@ -1,9 +1,10 @@
 let aud = new Audio('coin-flip-shimmer-85750.mp3')
 let yes = prompt("How much pokemon")
 let pokeDex = []
+let favy = []
 for (let i = 0; i < yes; i++) {
 let red = fetch('https://pokeapi.co/api/v2/pokemon?limit=1302')
-    
+
 .then(response =>{
     if(!response.ok){throw new Error('Networknrespons was not ok' + response.statusText)}
     let blue = response.json()
@@ -41,7 +42,7 @@ let blue = fetch(data.results[i].url)
 function make(info, id){
     pokeDex.push([info[0], info[2]])
     let backo = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
-    let template = `<div onmouseover="red()" ondblclick="Stay(id)" id="${info[0]}" class="P ${info[4]}"> <h1 id="Phead" class="red content" >${info[0].charAt(0).toUpperCase() + info[0].slice(1)}</h1> <div class="disp"> <p class="content h">${info[3].charAt(0).toUpperCase() + info[3].slice(1)} Type<p/> <p class="content">1st Ability: ${info[4].charAt(0).toUpperCase() + info[4].slice(1)}</p> <p class="content">Base Exp ${info[1]}</p></div> </div>`
+    let template = `<div ondblclick="fav(this.id)" ondblclick="Stay(id)" id="${info[0]}" class="P ${info[4]}"> <h1 id="Phead" class="red content" >${info[0].charAt(0).toUpperCase() + info[0].slice(1)}</h1> <div class="disp"> <p class="content h">${info[3].charAt(0).toUpperCase() + info[3].slice(1)} Type<p/> <p class="content">1st Ability: ${info[4].charAt(0).toUpperCase() + info[4].slice(1)}</p> <p class="content">Base Exp ${info[1]}</p></div> </div>`
     let reg = document.createElement('div')
     reg.innerHTML = template
     document.getElementById("outp").appendChild(reg)
@@ -87,7 +88,7 @@ function background(back, name){
 
 function ent(event, id){  
     let cont = document.getElementById('auto')
-    while (cont.childElementCount > 1) {
+    while (cont.childElementCount > 2) {
         cont.removeChild(cont.lastChild)
     }
     try{
@@ -119,14 +120,15 @@ function ent(event, id){
         comp = comp.join('')
         console.log(comp)
         console.log(search)
+        if(res.length == 6){
+            return
+        }
         if(search == comp){
             res.push(pokeDex[i])
             document.getElementById('auto').appendChild(el)
             document.getElementById(`${pokeDex[i][0]}SR`).setAttribute('class', 'animato')
         }
-        if(res == 6){
-            return
-        }
+        
     }
     console.log(res)
     if(event.key === 'Enter'){
@@ -136,9 +138,61 @@ function ent(event, id){
 }
 function load(id){
     console.log('robert')
-    let searched = document.getElementById(id.className).outerHTML
-    document.getElementById('outp').innerHTML = `<div class="out" id="outp">
+    let searched = document.getElementById(id.className)
+    console.log(searched)
+    let it = document.getElementById('outp')
+    for (let i = 0; i < it.children.length; i++) {
+            it.children[i].style.display = 'none'
+            console.log(it.children[i])
+            
+    }
+    console.log(searched)
+    searched.parentElement.style.display = 'initial'
+//     for (let i = 0; i < it.children.length; i++) {
+//         it.children[i].style.display = 'initial'
 
-    </div>`
-    document.getElementById('outp').innerHTML = searched
+// }
+}
+function back(){
+    let ito = document.getElementById('outp')
+    for (let i = 0; i < ito.children.length; i++) {
+            ito.children[i].style.display = 'initial'
+    }
+}
+function fav(ev){
+    let dbl = document.getElementById(ev)
+    if(dbl.style.backgroundColor != 'gold'){
+        
+    favy.push(dbl)
+    dbl.style.backgroundColor = 'gold'
+    dbl.style.boxShadow = '0 0 15px 5px gold'
+    }
+    else{
+    dbl.style.backgroundColor = 'salmon'
+        dbl.style.boxShadow = ''
+        favy.splice(favy.indexOf(dbl), 1)
+    }
+    
+
+    
+}
+function pFav(){
+    if(favy.length == 0){
+        return
+    }
+    let bo = document.getElementById('outp')
+    for (let i = 0; i < bo.children.length; i++) {
+        bo.children[i].style.display = 'none'
+        console.log(bo.children[i])
+}
+    for (let i = 0; i < favy.length; i++) {
+        favy[i].parentElement.style.display = 'initial'
+        console.log(bo.children[i])
+}
+}
+function blurry(){
+    let cont = document.getElementById('auto')
+    while (cont.childElementCount > 2) {
+        cont.removeChild(cont.lastChild)
+    }
 }
