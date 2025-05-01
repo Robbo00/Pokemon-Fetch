@@ -1,12 +1,12 @@
 // Initializes Variables
-let aud = new Audio('coin-flip-shimmer-85750.mp3')
+// let aud = new Audio('coin-flip-shimmer-85750.mp3')
 let yes = Number(prompt("How much pokemon"))
 let pokeDex = []
 let favy = []
+let s  = 0
 //Gets prompt and puts it in for loop to determine how many pokemon to get
 for (let i = 0; i < yes; i++) {
 let red = fetch('https://pokeapi.co/api/v2/pokemon?limit=1302')
-
 .then(response =>{
     if(!response.ok){throw new Error('Networknrespons was not ok' + response.statusText)}
     let blue = response.json()
@@ -206,3 +206,7 @@ function checkEnt(event){
     }
 }
 
+function time(){
+    s+= 1
+ 
+}
