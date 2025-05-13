@@ -202,3 +202,6 @@ img:hover{
 .show{
     display: initial;
 }
+button{
+    cursor: pointer;
+}
